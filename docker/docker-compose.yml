@@ -30,6 +30,7 @@ services:
       - "GEOREF_CONFIG=config/georef.cfg"
       - "FLASK_APP=service/__init__.py"
       - "FLASK_ENV=development"
+      - "ES_HOSTS=es01"
     command: flask run --host=0.0.0.0 --port=5000
     volumes:
       - ../config:/opt/app-root/src/georef-ar-api/config:ro

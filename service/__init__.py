@@ -4,11 +4,12 @@
 
 Crea la aplicación Flask de la API de Georef.
 """
-
+import os
 from flask import Flask
 
 app = Flask('georef', static_folder=None)
 app.config.from_envvar('GEOREF_CONFIG')
+app.config['ES_HOSTS'] = os.getenv('ES_HOSTS', app.config.get('ES_HOSTS', ['localhost']))
 
 with app.app_context():
     # Crear parsers de parámetros utilizando configuración de Flask app
